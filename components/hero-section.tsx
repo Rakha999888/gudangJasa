@@ -40,7 +40,7 @@ const HeroSection = () => {
   }, [])
 
   const handleCTA = () => {
-    const element = document.querySelector("#layanan")
+    const element = document.querySelector("#harga")
     if (element) {
       element.scrollIntoView({ behavior: "smooth" })
     }
@@ -72,6 +72,7 @@ const HeroSection = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <button
+            id="#harga"
             onClick={handleCTA}
             className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg"
           >
