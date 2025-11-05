@@ -13,9 +13,7 @@ const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-14 px-6 sm:px-10 lg:px-16 scroll-smooth">
       <div className="max-w-7xl mx-auto">
-        {/* Grid utama */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-10">
-          {/* Kolom 1 - Logo & Deskripsi */}
           <div className="flex flex-col sm:items-start">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-lg overflow-hidden flex items-center justify-center">
@@ -33,7 +31,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Kolom 2 - Navigasi Cepat */}
           <div>
             <h3 className="text-xl font-semibold mb-3">Navigasi Cepat</h3>
             <ul className="space-y-2 text-gray-400 text-sm">
@@ -58,7 +55,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Kolom 3 - Tentang Proyek */}
           <div>
             <h3 className="text-xl font-semibold mb-3">Tentang Proyek</h3>
             <p className="text-gray-400 text-sm leading-relaxed mb-4 max-w-sm">
@@ -76,7 +72,6 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Kolom 4 - Ikuti Kami (Sejajar) */}
           <div>
             <h3 className="text-xl font-semibold mb-3">Ikuti Kami</h3>
             <div className="flex space-x-5 mt-2">
@@ -84,7 +79,7 @@ const Footer = () => {
                 href="https://github.com/Rakha999888/gudangJasa"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
+                className="text-gray-400 hover:text-blue-500 transition transform hover:scale-110"
                 aria-label="GitHub"
               >
                 <svg
@@ -101,7 +96,7 @@ const Footer = () => {
                 href="https://instagram.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition transform hover:scale-110"
+                className="text-gray-400 hover:text-blue-500 transition transform hover:scale-110"
                 aria-label="Instagram"
               >
                 <svg

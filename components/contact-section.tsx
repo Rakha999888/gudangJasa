@@ -130,7 +130,6 @@ const ContactSection = () => {
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
                 <p className="text-gray-600">support@gudangjasa.com</p>
-                <p className="text-gray-600">business@gudangjasa.com</p>
               </div>
             </div>
 
@@ -139,8 +138,7 @@ const ContactSection = () => {
               <Phone className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-1">Telepon</h4>
-                <p className="text-gray-600">+62 812 3456 7890</p>
-                <p className="text-gray-600">+62 21 5555 6666</p>
+                <p className="text-gray-600">+62 821-6983-3829</p>
               </div>
             </div>
 
@@ -150,9 +148,9 @@ const ContactSection = () => {
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-1">Alamat</h4>
                 <p className="text-gray-600">
-                  Jl. Merdeka No. 123, Menteng
+                  Jl. Gang Bona RT 05 RW 03 No. 103
                   <br />
-                  Jakarta Pusat, 12190
+                  Jakarta Timur, 13940
                 </p>
               </div>
             </div>
