@@ -82,9 +82,6 @@ const Navbar = () => {
                 {link.label}
               </a>
             ))}
-            <button className="w-full mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors">
-              Mulai Sekarang
-            </button>
           </div>
         )}
       </div>

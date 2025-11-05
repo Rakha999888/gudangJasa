@@ -9,29 +9,34 @@ gsap.registerPlugin(ScrollTrigger)
 
 const faqs = [
   {
-    question: "Bagaimana cara mendaftar di GudangJasa?",
+    question: "Berapa lama pengerjaan di GudangJasa?",
     answer:
-      "Anda dapat mendaftar melalui aplikasi mobile atau website kami dengan menggunakan email atau nomor telepon. Proses pendaftaran hanya membutuhkan waktu kurang dari 2 menit.",
+      "Waktu pembuatan website bervariasi tergantung dari kompleksitas fitur dan desain. Untuk website sederhana, biasanya memakan waktu sekitar 3 hingga 6 hari. Untuk website yang kompleks, bisa memakan waktu 3 hingga 4 minggu.",
   },
   {
-    question: "Apakah penyedia jasa di GudangJasa sudah terverifikasi?",
+    question: "Apakah harus punya gambar & teks?",
     answer:
-      "Ya, semua penyedia jasa di GudangJasa telah melalui proses verifikasi ketat yang mencakup pengecekan identitas, riwayat pekerjaan, dan ulasan pelanggan.",
+      "Kami bisa membantu dalam menyediakan konten jika dibutuhkan. Namun, jika kamu sudah punya konten seperti teks atau gambar, itu akan sangat membantu untuk proses pembuatan.",
   },
   {
-    question: "Berapa lama waktu respons penyedia jasa?",
+    question: "Gimana proses pembuatan di GudangJasa?",
     answer:
-      "Rata-rata waktu respons penyedia jasa adalah 5-15 menit setelah Anda membuat order. Untuk jasa tertentu yang urgent, kami juga menyediakan layanan express dengan respons maksimal 30 menit.",
+      "Prosesnya terdiri dari beberapa tahap: konsultasi, perancangan desain, pengembangan, pengujian, dan peluncuran. Kami akan terus berkomunikasi dengan klien selama proses ini untuk memastikan hasil akhir sesuai dengan keinginan.",
   },
   {
-    question: "Apakah ada jaminan uang kembali?",
+    question: "Apakah ada layanan maintenance?",
     answer:
-      "Iya, jika Anda tidak puas dengan layanan yang diberikan, kami menawarkan garansi uang kembali 100% dalam 24 jam setelah transaksi selesai.",
+      "Ya, kami menyediakan layanan maintenance untuk memastikan website kamu tetap berjalan dengan baik dan aman. Layanan ini mencakup pembaruan sistem, backup, dan perbaikan jika ada masalah.",
   },
   {
-    question: "Bagaimana cara membayar untuk jasa yang saya pesan?",
+    question: "Jika project selesai tapi ada revisi?",
     answer:
-      "Kami menerima berbagai metode pembayaran termasuk transfer bank, e-wallet (GoPay, OVO, DANA), dan cicilan tanpa bunga melalui kartu kredit.",
+      "Kami memberikan revisi gratis sesuai dengan paket yang dipilih. Jika revisi melebihi batas yang ditentukan, akan ada tambahan biaya per-revisi.",
+  },
+  {
+    question: "Bagaimana dengan sistem pembayaran?",
+    answer:
+      "Kami menerima pembayaran melalui Paypal, OVO, Dana, ShopeePay, Mandiri, dan BRI. Pembayaran dapat dilakukan dengan dua opsi yaitu Full Payment, DP 50% dan kekurangan dapat dibayar ketika project sudah selesai",
   },
 ]
 

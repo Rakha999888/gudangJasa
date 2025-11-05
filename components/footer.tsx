@@ -1,13 +1,14 @@
 const Footer = () => {
   const currentYear = new Date().getFullYear()
 
-  const handleSmoothScroll = (e, id) => {
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault()
     const target = document.querySelector(id)
     if (target) {
       target.scrollIntoView({ behavior: "smooth" })
     }
   }
+
 
   return (
     <footer className="bg-gray-900 text-white py-14 px-6 sm:px-10 lg:px-16 scroll-smooth">
@@ -80,7 +81,7 @@ const Footer = () => {
             <h3 className="text-xl font-semibold mb-3">Ikuti Kami</h3>
             <div className="flex space-x-5 mt-2">
               <a
-                href="https://github.com/"
+                href="https://github.com/Rakha999888/gudangJasa"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-white transition transform hover:scale-110"
