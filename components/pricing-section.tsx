@@ -30,7 +30,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis",
     ],
-    cta: "Kirim Pesan",
+    cta: "Pilih Pemula",
   },
   {
     name: "Menengah",
@@ -45,7 +45,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis/Dinamis",
     ],
-    cta: "Kirim Pesan",
+    cta: "Pilih menengah",
     highlighted: true,
   },
   {
@@ -61,7 +61,7 @@ const plans: Plan[] = [
       "Garansi selamanya",
       "Statis/Dinamis",
     ],
-    cta: "Kirim Pesan",
+    cta: "Pilih Profesional",
   },
 ]
 
@@ -175,10 +175,9 @@ const PricingSection: React.FC = () => {
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${translateClass} ${mobileSpacing}
-                  ${
-                    isHighlighted
-                      ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-200/60"
-                      : "bg-white border border-gray-200 text-gray-900 shadow-xl shadow-gray-300/50"
+                  ${isHighlighted
+                    ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl shadow-blue-200/60"
+                    : "bg-white border border-gray-200 text-gray-900 shadow-xl shadow-gray-300/50"
                   }
                 hover:shadow-2xl hover:-translate-y-2 md:hover:-translate-y-3
                 `}
@@ -195,26 +194,23 @@ const PricingSection: React.FC = () => {
                 )}
 
                 <h3
-                  className={`text-2xl font-bold mb-2 ${
-                    isHighlighted ? "text-white" : "text-gray-900"
-                  }`}
+                  className={`text-2xl font-bold mb-2 ${isHighlighted ? "text-white" : "text-gray-900"
+                    }`}
                 >
                   {plan.name}
                 </h3>
 
                 <p
-                  className={`mb-6 ${
-                    isHighlighted ? "text-blue-100" : "text-gray-600"
-                  }`}
+                  className={`mb-6 ${isHighlighted ? "text-blue-100" : "text-gray-600"
+                    }`}
                 >
                   {plan.description}
                 </p>
 
                 <div className="mb-8">
                   <span
-                    className={`text-5xl font-extrabold ${
-                      isHighlighted ? "text-white" : "text-gray-900"
-                    }`}
+                    className={`text-5xl font-extrabold ${isHighlighted ? "text-white" : "text-gray-900"
+                      }`}
                   >
                     {plan.price}
                   </span>
@@ -222,13 +218,12 @@ const PricingSection: React.FC = () => {
 
                 <button
                   onClick={(e) => handleClick(e, plan.name)}
-                  className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 ${
-                    isHighlighted
+                  className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-300 ${isHighlighted
                       ? "bg-white text-blue-600"
                       : "bg-gradient-to-r from-blue-500 to-blue-700 text-white"
-                  }`}
+                    }`}
                 >
-                  Kirim Pesan
+                  {plan.cta}
                 </button>
 
                 <div className="space-y-4">
