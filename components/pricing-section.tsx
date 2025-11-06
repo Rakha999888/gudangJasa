@@ -65,28 +65,49 @@ const plans: Plan[] = [
   },
 ]
 
-const whatsappNumber = "6281234567890" // ganti dengan nomormu tanpa tanda '+'
+const whatsappNumber = "6282169833829"
 
 const PricingSection: React.FC = () => {
   const sectionRef = useRef<HTMLElement | null>(null)
-  const cardsRef = useRef<Array<HTMLDivElement | null>>([])
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
     const cards = cardsRef.current.filter((c): c is HTMLDivElement => c !== null)
 
     cards.forEach((card, index) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: sectionRef.current as HTMLElement,
-          start: "top center",
-        },
-        opacity: 0,
-        scale: 0.95,
-        y: 40,
-        duration: 0.6,
-        delay: index * 0.12,
-        ease: "power3.out",
-      })
+      const isHighlighted = !!plans[index].highlighted
+
+      if (isHighlighted) {
+        gsap.fromTo(
+          card,
+          { opacity: 0, scale: 0.95, y: 40 },
+          {
+            opacity: 1,
+            scale: 1.05,
+            y: -20, // naik tapi tidak terlalu tinggi
+            duration: 0.6,
+            delay: index * 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: sectionRef.current as HTMLElement,
+              start: "top center",
+            },
+          }
+        )
+      } else {
+        gsap.from(card, {
+          scrollTrigger: {
+            trigger: sectionRef.current as HTMLElement,
+            start: "top center",
+          },
+          opacity: 0,
+          scale: 0.95,
+          y: 40,
+          duration: 0.6,
+          delay: index * 0.12,
+          ease: "power3.out",
+        })
+      }
     })
 
     return () => {
@@ -95,7 +116,7 @@ const PricingSection: React.FC = () => {
         all.forEach((st) => st.kill())
         gsap.killTweensOf(cards)
       } catch {
-        // ignore safe cleanup errors
+        // ignore cleanup error
       }
     }
   }, [])
@@ -108,48 +129,45 @@ const PricingSection: React.FC = () => {
     window.open(wa, "_blank")
   }
 
-  // handler untuk naik saat mouse berada di atas kartu
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
-    // gunakan GSAP untuk animasi halus
-    gsap.to(e.currentTarget, { y: -12, duration: 0.28, ease: "power2.out" })
+    gsap.to(e.currentTarget, { y: "-=10", duration: 0.25, ease: "power2.out" })
   }
+
   const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
-    gsap.to(e.currentTarget, { y: 0, duration: 0.28, ease: "power2.inOut" })
+    gsap.to(e.currentTarget, { y: "+=10", duration: 0.25, ease: "power2.inOut" })
   }
 
   return (
-    <section ref={sectionRef} id="harga" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section ref={sectionRef} id="harga" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50 relative overflow-hidden">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Paket <span className="text-blue-600">Harga</span>
           </h2>
           <p className="text-xl text-gray-600">Pilih paket yang sesuai dengan kebutuhan Anda</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-start md:items-stretch">
+        <div className="grid md:grid-cols-3 gap-8 items-start relative">
           {plans.map((plan, index) => {
             const isHighlighted = !!plan.highlighted
-
-            // buat kartu "Menengah" lebih naik dari yang lain (CSS-only initial offset)
-            const baseCardClass = `relative p-8 rounded-2xl transform transition-all duration-300`
-            const highlightedInitial =
-              "md:-translate-y-6 md:scale-105" // initial visual naik di desktop untuk kartu populer
+            const zClass = isHighlighted ? "z-20" : "z-10"
 
             return (
               <div
                 key={plan.name}
-                ref={(el) => (cardsRef.current[index] = el)}
+                ref={(el) => {
+                  cardsRef.current[index] = el
+                }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${baseCardClass} ${
+                className={`relative p-8 rounded-2xl transform transition-all duration-300 ${zClass} ${
                   isHighlighted
-                    ? `bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-xl ${highlightedInitial}`
-                    : "bg-white border border-gray-200 text-gray-900"
+                    ? "bg-gradient-to-br from-blue-600 to-blue-700 text-white shadow-2xl"
+                    : "bg-white border border-gray-200 text-gray-900 shadow-md"
                 }`}
               >
                 {isHighlighted && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold shadow-md z-10">
+                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-gray-900 px-4 py-1 rounded-full text-sm font-semibold shadow-md z-30">
                     Paling Populer
                   </div>
                 )}
@@ -178,11 +196,7 @@ const PricingSection: React.FC = () => {
                 <div className="space-y-4">
                   {plan.features.map((feature, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
-                      <Check
-                        size={20}
-                        className={isHighlighted ? "text-blue-100 mt-[3px]" : "text-blue-600 mt-[3px]"}
-                        aria-hidden
-                      />
+                      <Check size={20} className={isHighlighted ? "text-blue-100 mt-[3px]" : "text-blue-600 mt-[3px]"} />
                       <span className={isHighlighted ? "text-blue-50" : "text-gray-700"}>{feature}</span>
                     </div>
                   ))}

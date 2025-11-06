@@ -9,9 +9,9 @@ import { Mail, MapPin, Phone } from "lucide-react"
 gsap.registerPlugin(ScrollTrigger)
 
 const ContactSection = () => {
-  const sectionRef = useRef(null)
-  const formRef = useRef(null)
-  const infoRef = useRef(null)
+  const sectionRef = useRef<HTMLDivElement | null>(null)
+  const formRef = useRef<HTMLFormElement | null>(null)
+  const infoRef = useRef<HTMLDivElement | null>(null)
 
   const [formData, setFormData] = useState({
     name: "",
@@ -54,9 +54,15 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log("Form submitted:", formData)
+
+    const phoneNumber = "6282169833829" // Nomor WhatsApp tanpa tanda +
+    const message = `Halo, saya ${formData.name}.\nEmail: ${formData.email}\nPesan: ${formData.message}`
+    const encodedMessage = encodeURIComponent(message)
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`
+
+    window.open(whatsappURL, "_blank") // buka di tab baru
+
     setFormData({ name: "", email: "", message: "" })
-    alert("Terima kasih! Pesan Anda telah dikirim.")
   }
 
   return (
@@ -70,8 +76,11 @@ const ContactSection = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
-         
-          <form ref={formRef} onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-lg space-y-6">
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="bg-white p-8 rounded-xl shadow-lg space-y-6"
+          >
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Kirim Pesan</h3>
 
             <div>
@@ -124,16 +133,14 @@ const ContactSection = () => {
           <div ref={infoRef} className="bg-white p-8 rounded-xl shadow-lg space-y-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Informasi Kontak</h3>
 
-            {/* Email */}
             <div className="flex items-start space-x-4">
               <Mail className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
                 <h4 className="text-lg font-semibold text-gray-900 mb-1">Email</h4>
-                <p className="text-gray-600">support@gudangjasa.com</p>
+                <p className="text-gray-600">gudanginweb@gmail.com</p>
               </div>
             </div>
 
-            {/* Telepon */}
             <div className="flex items-start space-x-4">
               <Phone className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
@@ -142,7 +149,6 @@ const ContactSection = () => {
               </div>
             </div>
 
-            {/* Alamat */}
             <div className="flex items-start space-x-4">
               <MapPin className="w-8 h-8 text-blue-600 flex-shrink-0 mt-1" />
               <div>
