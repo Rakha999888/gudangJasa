@@ -22,13 +22,13 @@ const AboutSection = () => {
     })
 
     tl.from(textRef.current, {
-      opacity: 0,
+      opacity: 1,
       x: -50,
       duration: 0.8,
     }).from(
       imageRef.current,
       {
-        opacity: 0,
+        opacity: 1,
         x: 50,
         duration: 0.8,
       },
