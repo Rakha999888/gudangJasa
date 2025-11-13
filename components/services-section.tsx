@@ -3,32 +3,32 @@
 import { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { BookOpen, ImageIcon, LayoutGrid, Wrench } from "lucide-react"
+import { BookOpen, FileText, UserRoundPen, Wrench } from "lucide-react"
 
 gsap.registerPlugin(ScrollTrigger)
 
 const services = [
   {
-    icon: BookOpen,
+    icon: FileText,
     title: "Company Profile",
     description:
       "Bangun kepercayaan dengan profil perusahaan profesional untuk bisnis Anda.",
   },
   {
-    icon: ImageIcon,
+    icon: UserRoundPen,
     title: "Portofolio",
     description:
       "Tampilkan karya terbaik Anda dengan desain portofolio yang elegan dan menarik.",
   },
   {
-    icon: LayoutGrid,
+    icon: BookOpen,
     title: "Katalog",
     description:
       "Sajikan produk atau layanan dengan katalog online yang mudah diakses dan informatif.",
   },
   {
     icon: Wrench,
-    title: "Custom Website",
+    title: "Custom",
     description:
       "Dapatkan solusi website yang dirancang khusus untuk kebutuhan bisnis kamu.",
   },
